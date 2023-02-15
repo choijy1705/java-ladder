@@ -14,9 +14,12 @@ public class LadderController {
         Ladder ladder = new Ladder(names, height);
 
         View.printNames(names);
+        printLadder(ladder);
+    }
+
+    private void printLadder(Ladder ladder) {
         for (Line line : ladder.getLines()) {
-            List<Boolean> points = line.getPoints();
-            View.printLadder(points);
+            View.printLadder(line.getPoints());
         }
     }
 }

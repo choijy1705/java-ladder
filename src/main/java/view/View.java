@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class View {
 
+    private static final String LINE = "|";
+    private static final String POINT = "-----";
     private static final Scanner SCANNER = new Scanner(System.in);
 
     public static List<String> getNames() {
@@ -26,16 +28,16 @@ public class View {
 
     public static void printLadder(List<Boolean> points) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("    |");
+        stringBuilder.append(String.format("%6s", LINE));
         points.forEach(point -> stringBuilder.append(printPoint(point)));
         System.out.println(stringBuilder);
     }
 
-    private static String printPoint(Boolean point) {
+    private static String printPoint(boolean point) {
         if (point) {
-            return "-----|";
+            return POINT + LINE;
         }
-        return "     |";
+        return String.format("%6s", LINE);
     }
 
     public static void printNames(List<String> names) {
