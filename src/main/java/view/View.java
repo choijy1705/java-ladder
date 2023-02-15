@@ -12,9 +12,8 @@ public class View {
     public static List<String> getNames() {
         System.out.println("참여할 사람을 입력하세요. (이름은 쉼표(,)로 구분하세요");
         String line = SCANNER.nextLine();
-        String[] split = line.split(",");
 
-        return List.of(split);
+        return List.of(line.split(","));
     }
 
     public static int getLadderHeight() {
@@ -24,6 +23,13 @@ public class View {
         } catch (Exception e) {
             throw new IllegalArgumentException("정확한 숫자를 입력해주세요!");
         }
+    }
+
+    public static List<String> getResults() {
+        System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
+        String line = SCANNER.next();
+
+        return List.of(line.split(","));
     }
 
     public static void printLadder(List<Boolean> points) {
@@ -43,5 +49,20 @@ public class View {
     public static void printNames(List<String> names) {
         names.forEach(name -> System.out.printf("%5s ", name));
         System.out.println();
+    }
+
+    public static void printResults(List<String> results) {
+        results.forEach(result -> System.out.printf("%-6s", result));
+        System.out.println();
+    }
+
+    public static String selectPlayer() {
+        System.out.println("결과를 보고 싶은 사람은?");
+        return SCANNER.next();
+    }
+
+    public static void printGameResult(String result) {
+        System.out.println("실행결과");
+        System.out.println(result);
     }
 }
